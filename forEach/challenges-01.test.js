@@ -48,8 +48,8 @@ const addBonusPoints = (arr) => {
 
 const addCurve = (arr) => {
   let second = [];
-  for (let value of arr) {
-    second.push(value * 1.05);
+  for(let value in arr) {
+    second.push(arr[value] * 1.05);
   }
   return second;
 };
@@ -151,7 +151,7 @@ const removeWithForEach = (input, callback) => {
 // ------------------------------------------------------------------------------------------------
 
 const removeWithAnon = (input) => {
-  input.forEach(function(element) {
+  input.forEach((element, index, input) => {
     if(element % 3 === 2) {
       input.pop();
     }
