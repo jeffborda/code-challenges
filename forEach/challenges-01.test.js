@@ -89,12 +89,15 @@ const speaker = (message, callback) => {
 // ------------------------------------------------------------------------------------------------
 
 const addValues = (arr, value) => {
-  // Solution code here...
-}
+  return arr.push(value);
+};
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
-}
+  for (let i = times; i > 0; i--) {
+    callback(arr, num);
+  }
+  return arr;
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 6
