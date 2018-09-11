@@ -151,8 +151,13 @@ const removeWithForEach = (input, callback) => {
 // ------------------------------------------------------------------------------------------------
 
 const removeWithAnon = (input) => {
-  // Solution code here...
-}
+  input.forEach(function(element) {
+    if(element % 3 === 2) {
+      input.pop();
+    }
+  });
+  return input;
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 9
