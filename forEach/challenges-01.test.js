@@ -202,8 +202,23 @@ const createList = (availableItems) => {
 // ------------------------------------------------------------------------------------------------
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
-}
+  let output = [];
+  for(let value of arr){
+    if((value % 3 === 0 && value % 5 === 0) && value !== 0) {
+      output.push('Fizz Buzz');
+    }
+    else if(value % 3 === 0 && value !== 0) {
+      output.push('Fizz');
+    }
+    else if(value % 5 === 0 && value !== 0) {
+      output.push('Buzz');
+    }
+    else {
+      output.push(value);
+    }
+  }
+  return output;
+};
 
 // ------------------------------------------------------------------------------------------------
 // TESTS
