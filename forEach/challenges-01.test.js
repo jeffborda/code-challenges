@@ -31,7 +31,7 @@ const pushIntoSecond = (arr) => {
 const addBonusPoints = (arr) => {
   let second = [];
   for (let value of arr) {
-    second.push(value += 5);
+    second.push(value + 5);
   }
   return second;
 };
@@ -47,8 +47,12 @@ const addBonusPoints = (arr) => {
 // ------------------------------------------------------------------------------------------------
 
 const addCurve = (arr) => {
-  // Solution code here...
-}
+  let second = [];
+  for (let value of arr) {
+    second.push(value * 1.05);
+  }
+  return second;
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 4
