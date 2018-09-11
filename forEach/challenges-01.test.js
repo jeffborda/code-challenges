@@ -178,8 +178,14 @@ const removeWithAnon = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const createList = (availableItems) => {
-  // Solution code here...
-}
+  let list = [];
+  availableItems.forEach(function(item){
+    if(item.available){
+      list.push(item.name);
+    }
+  });
+  return list;
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 10
