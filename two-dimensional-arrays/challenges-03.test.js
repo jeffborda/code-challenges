@@ -174,8 +174,14 @@ const battleship = (board, row, col) => {
 // ------------------------------------------------------------------------------------------------
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
-}
+  let total = 1;
+  for(let i of numbers) {
+    for(let j of i) {
+      total *= j;
+    }
+  }
+  return total;
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 8
