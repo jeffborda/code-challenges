@@ -73,7 +73,15 @@ const salesData = (hours, data) => {
 // ------------------------------------------------------------------------------------------------
 
 const giveValentines = (list) => {
-  // Solution code here...
+  let returnArray = [];
+  for(let i in list) {
+    for(let j in list) {
+      if(list[i] !== list[j]){
+        returnArray.push(`${list[i]} gives a Valentine to ${list[j]}.`);
+      }
+    }
+  }
+  return returnArray;
 };
 
 // ------------------------------------------------------------------------------------------------
