@@ -227,7 +227,7 @@ let lowestWeeklyTemperatureData = [
   [33, 64, 58, 65, 71, 57, 60],
   [40, 45, 33, 53, 44, 59, 48],
   [55, 54, 60, 53, 59, 57, 61],
-  [65, 56, 55, 52, 55, 62, 57],
+  [65, 56, 55, 52, 55, 62, 57]
 ];
 
 const lowestWeeklyAverage = (weather) => {
@@ -273,8 +273,21 @@ const lowestWeeklyAverage = (weather) => {
 // ------------------------------------------------------------------------------------------------
 
 const excel = (str) => {
-  // Solution code here...
-}
+  let rowSums = [];
+  let rowsArr = str.split('\n');
+
+  for(let i = 0; i < rowsArr.length; i++) {
+    let tempSum = 0;
+    let colArr = rowsArr[i].split(',');
+
+    for(let j = 0; i < colArr.length; j++) {
+      let temp = parseInt(colArr[j]);
+      tempSum += temp;
+    }
+    sumEachRow.push(tempSum);
+  }
+  return sumEachRow;
+};
 
 
 // ------------------------------------------------------------------------------------------------
