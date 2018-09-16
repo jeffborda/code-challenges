@@ -50,7 +50,14 @@ const isCapitalized = (string) => {
 // ------------------------------------------------------------------------------------------------
 
 const citiesAtoJ = (cities) => {
-  // Solution code here...
+  let returnArray = [];
+  // return cities.match(/[A-J][A-Za-z]*/g);
+  for(let elem of cities) {
+    if (elem.match(/^[A-J]/)) {
+      returnArray.push(elem);
+    }
+  }
+  return returnArray;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -153,18 +160,18 @@ describe('Testing challenge 2', () => {
   });
 });
 
-// describe('Testing challenge 3', () => {
-//   let cities = ['Cleveland', 'San Diego', 'Birmingham', 'Seattle', 'Miami', 'New York City', 'Omaha', 'Portland', 'Austin', 'Boston', 'Newport Beach', 'Hoboken'];
+describe('Testing challenge 3', () => {
+  let cities = ['Cleveland', 'San Diego', 'Birmingham', 'Seattle', 'Miami', 'New York City', 'Omaha', 'Portland', 'Austin', 'Boston', 'Newport Beach', 'Hoboken'];
 
-//   test('It should return the cities whose names begin with the letters A through J', () => {
-//     expect(citiesAtoJ(cities)).toContain('Cleveland', 'Birmingham', 'Austin', 'Boston', 'Hoboken');
-//     expect(citiesAtoJ(cities).length).toStrictEqual(5);
-//   });
+  test('It should return the cities whose names begin with the letters A through J', () => {
+    expect(citiesAtoJ(cities)).toContain('Cleveland', 'Birmingham', 'Austin', 'Boston', 'Hoboken');
+    expect(citiesAtoJ(cities).length).toStrictEqual(5);
+  });
 
-//   test('It should not return the cities whose names begin with the letters K through Z', () => {
-//     expect(citiesAtoJ(cities)).not.toContain('San Diego', 'Seattle', 'Miami', 'New York City', 'Omaha', 'Portland', 'Newport Beach');
-//   });
-// });
+  test('It should not return the cities whose names begin with the letters K through Z', () => {
+    expect(citiesAtoJ(cities)).not.toContain('San Diego', 'Seattle', 'Miami', 'New York City', 'Omaha', 'Portland', 'Newport Beach');
+  });
+});
 
 // describe('Testing challenge 4', () => {
 //   test('It should match any of the acceptable inputs', () => {
