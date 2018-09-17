@@ -73,7 +73,7 @@ const citiesAtoJ = (cities) => {
 // ------------------------------------------------------------------------------------------------
 
 const matchMonth = (input) => {
-  if(input.match(/^[oO]ct(ober)?/)) {
+  if(input.match(/^[Oo](?=ct)(ober)?/)) {
     return true;
   }
   return false;
