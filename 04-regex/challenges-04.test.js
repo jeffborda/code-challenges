@@ -73,7 +73,10 @@ const citiesAtoJ = (cities) => {
 // ------------------------------------------------------------------------------------------------
 
 const matchMonth = (input) => {
-  // Solution code here...
+  if(input.match(/^[oO]ct(ober)?/)) {
+    return true;
+  }
+  return false;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -173,23 +176,23 @@ describe('Testing challenge 3', () => {
   });
 });
 
-// describe('Testing challenge 4', () => {
-//   test('It should match any of the acceptable inputs', () => {
-//     expect(matchMonth('Oct')).toBeTruthy();
-//     expect(matchMonth('oct')).toBeTruthy();
-//     expect(matchMonth('October')).toBeTruthy();
-//     expect(matchMonth('october')).toBeTruthy();
-//   });
+describe('Testing challenge 4', () => {
+  test('It should match any of the acceptable inputs', () => {
+    expect(matchMonth('Oct')).toBeTruthy();
+    expect(matchMonth('oct')).toBeTruthy();
+    expect(matchMonth('October')).toBeTruthy();
+    expect(matchMonth('october')).toBeTruthy();
+  });
 
-//   test('It should not match anything other than the acceptable inputs', () => {
-//     expect(matchMonth('November')).toBeFalsy();
-//     expect(matchMonth('nov')).toBeFalsy();
-//     expect(matchMonth(123)).toBeFalsy();
-//     expect(matchMonth('octob')).toBeFalsy();
-//     expect(matchMonth('OCTOBER')).toBeFalsy();
-//     expect(matchMonth('notOctober')).toBeFalsy();
-//   });
-// });
+  test('It should not match anything other than the acceptable inputs', () => {
+    expect(matchMonth('November')).toBeFalsy();
+    expect(matchMonth('nov')).toBeFalsy();
+    expect(matchMonth(123)).toBeFalsy();
+    expect(matchMonth('octob')).toBeFalsy();
+    expect(matchMonth('OCTOBER')).toBeFalsy();
+    expect(matchMonth('notOctober')).toBeFalsy();
+  });
+});
 
 // describe('Testing challenge 5', () => {
 //   const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia vel massa sed egestas. Nunc faucibus iaculis elit, a scelerisque enim condimentum sed. Aenean ac scelerisque sem, et pharetra diam.';
