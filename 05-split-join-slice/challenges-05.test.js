@@ -200,7 +200,14 @@ For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------*/
 
 const removeVowels = (str) => {
-  // Solution code here...
+  let arr = str.split('');
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] === 'a' || arr[i] === 'e' || arr[i] === 'i' || arr[i] === 'o' || arr[i] === 'u') {
+      arr.splice(i, 1);
+      i--;
+    }
+  }
+  return arr.join('');
 };
 
 /*------------------------------------------------------------------------
@@ -302,14 +309,14 @@ describe('Testing challenge 8', () => {
   });
 });
 
-// describe('Testing challenge 9', () => {
-//   test('It should return the string without vowels', () => {
-//     expect(removeVowels('gregor')).toStrictEqual('grgr');
-//     expect(removeVowels('gregor').length).toStrictEqual(4);
-//     expect(removeVowels('asdf')).toStrictEqual('sdf');
-//     expect(removeVowels('why')).toStrictEqual('why');
-//   });
-// });
+describe('Testing challenge 9', () => {
+  test('It should return the string without vowels', () => {
+    expect(removeVowels('gregor')).toStrictEqual('grgr');
+    expect(removeVowels('gregor').length).toStrictEqual(4);
+    expect(removeVowels('asdf')).toStrictEqual('sdf');
+    expect(removeVowels('why')).toStrictEqual('why');
+  });
+});
 
 // describe('Testing challenge 10', () => {
 //   test('It should return the string without vowels', () => {
