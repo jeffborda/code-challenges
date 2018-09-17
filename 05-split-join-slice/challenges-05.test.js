@@ -90,10 +90,22 @@ const gruffaloCrumble = {
 
 
 const listFoods = (recipe) => {
-  let result = [];
-  // Solution code here...
-  return result;
-}
+  // let result = [];
+  // let returnArray = [];
+  // let ingredients = Object.values(recipe.ingredients);
+
+  // for(let i = 0; i < ingredients.length; i++) {
+  //   result.push(ingredients[i].split(' '));
+  // }
+
+  // for(let i = 0; i < result.length; i++) {
+
+  //   returnArray.push(result[i].slice(2));
+  // }
+  //return result;
+
+  // return result;
+};
 
 /*------------------------------------------------------------------------
 CHALLENGE 5
@@ -141,7 +153,13 @@ For example:
 ------------------------------------------------------------------------*/
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] % 2 === 0) {
+      arr.splice(i, 1);
+      i--;
+    }
+  }
+  return arr;
 };
 
 /*------------------------------------------------------------------------
@@ -231,11 +249,11 @@ describe('Testing challenge 3', () => {
 //   });
 // });
 
-// describe('Testing challenge 5', () => {
-//   test('It should return a list of foods', () => {
-//     expect(splitFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
-//   });
-// });
+describe('Testing challenge 5', () => {
+  test('It should return a list of foods', () => {
+    expect(splitFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
+  });
+});
 
 // describe('Testing challenge 6', () => {
 //   test('It should return a list of recipe steps', () => {
@@ -244,18 +262,18 @@ describe('Testing challenge 3', () => {
 //   });
 // });
 
-// describe('Testing challenge 7', () => {
-//   test('It should remove the even numbers from the array', () => {
-//     let list = [1, 2, 3, 4, 5, 6];
-//     removeEvenValues(list);
-//     expect(list).toStrictEqual([1, 3, 5]);
+describe('Testing challenge 7', () => {
+  test('It should remove the even numbers from the array', () => {
+    let list = [1, 2, 3, 4, 5, 6];
+    removeEvenValues(list);
+    expect(list).toStrictEqual([1, 3, 5]);
 
-//     list = [6, 3, 19, 43, 12, 66, 43];
-//     removeEvenValues(list);
-//     expect(list).toStrictEqual([3, 19, 43, 43]);
-//     expect(list.length).toStrictEqual(4);
-//   });
-// });
+    list = [6, 3, 19, 43, 12, 66, 43];
+    removeEvenValues(list);
+    expect(list).toStrictEqual([3, 19, 43, 43]);
+    expect(list.length).toStrictEqual(4);
+  });
+});
 
 // describe('Testing challenge 8', () => {
 //   test('It should shorten the string based on the first argument', () => {
