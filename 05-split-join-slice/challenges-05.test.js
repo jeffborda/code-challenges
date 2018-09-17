@@ -90,21 +90,23 @@ const gruffaloCrumble = {
 
 
 const listFoods = (recipe) => {
-  // let result = [];
-  // let returnArray = [];
-  // let ingredients = Object.values(recipe.ingredients);
+  let result = [];
+  let finalResult = [];
+  let returnList = [];
 
-  // for(let i = 0; i < ingredients.length; i++) {
-  //   result.push(ingredients[i].split(' '));
-  // }
+  for(let i = 0; i < recipe.ingredients.length; i++) {
+    result.push(recipe.ingredients[i].split(' '));
+  }
 
-  // for(let i = 0; i < result.length; i++) {
+  for(let elem of result) {
+    finalResult.push(elem.slice(2));
+  }
 
-  //   returnArray.push(result[i].slice(2));
-  // }
-  //return result;
+  for(let elem of finalResult) {
+    returnList.push(elem.join(' '));
+  }
 
-  // return result;
+  return returnList;
 };
 
 /*------------------------------------------------------------------------
@@ -117,8 +119,22 @@ You may also use other array/string functions.
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
-  return result;
+  let finalResult = [];
+  let returnList = [];
+
+  for(let i = 0; i < recipe.ingredients.length; i++) {
+    result.push(recipe.ingredients[i].split(' '));
+  }
+
+  for(let elem of result) {
+    finalResult.push(elem.slice(2));
+  }
+
+  for(let elem of finalResult) {
+    returnList.push(elem.join(' '));
+  }
+
+  return returnList;
 }
 
 /*------------------------------------------------------------------------
@@ -135,9 +151,21 @@ Use the split method for this function.
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
-  return result;
-}
+  let resultList = [];
+  let returnList = [];
+
+  for(let elem of recipe.steps) {
+    result.push(elem.split(' '));
+  }
+  for(let elem of result) {
+    resultList.push(elem.slice(0,1));
+  }
+  for(let elem of resultList) {;
+    returnList.push(elem.join(' '))
+  }
+
+  return returnList;
+};
 
 /*------------------------------------------------------------------------
 CHALLENGE 7
@@ -274,12 +302,12 @@ describe('Testing challenge 3', () => {
   });
 });
 
-// describe('Testing challenge 4', () => {
-//   test('It should return a list of foods', () => {
-//     expect(listFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
-//     expect(listFoods(gruffaloCrumble).length).toStrictEqual(11);
-//   });
-// });
+describe('Testing challenge 4', () => {
+  test('It should return a list of foods', () => {
+    expect(listFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
+    expect(listFoods(gruffaloCrumble).length).toStrictEqual(11);
+  });
+});
 
 describe('Testing challenge 5', () => {
   test('It should return a list of foods', () => {
@@ -287,12 +315,12 @@ describe('Testing challenge 5', () => {
   });
 });
 
-// describe('Testing challenge 6', () => {
-//   test('It should return a list of recipe steps', () => {
-//     expect(stepActions(gruffaloCrumble)).toStrictEqual(['Pre-heat', 'De-prickle', 'Sprinkle', 'Mix', 'Grease', 'Combine', 'Fold', 'Spread', 'Bake']);
-//     expect(stepActions(gruffaloCrumble).length).toStrictEqual(9);
-//   });
-// });
+describe('Testing challenge 6', () => {
+  test('It should return a list of recipe steps', () => {
+    expect(stepActions(gruffaloCrumble)).toStrictEqual(['Pre-heat', 'De-prickle', 'Sprinkle', 'Mix', 'Grease', 'Combine', 'Fold', 'Spread', 'Bake']);
+    expect(stepActions(gruffaloCrumble).length).toStrictEqual(9);
+  });
+});
 
 describe('Testing challenge 7', () => {
   test('It should remove the even numbers from the array', () => {
