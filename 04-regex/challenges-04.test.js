@@ -110,7 +110,7 @@ const noPunctuation = input => {
 // ------------------------------------------------------------------------------------------------
 
 let hangman = (str) => {
-  // Solution code here...
+  return str.replace(/[aeiou]/g, '_');
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -207,17 +207,17 @@ describe('Testing challenge 5', () => {
   });
 });
 
-// describe('Testing challenge 6', () => {
-//   let startString = 'This is a regex challenge. We are trying to create a hangman phrase where all of the vowels are missing!';
+describe('Testing challenge 6', () => {
+  let startString = 'This is a regex challenge. We are trying to create a hangman phrase where all of the vowels are missing!';
 
-//   test('It should remove the vowels from the hangman string and replace them with underscores', () => {
-//     expect(hangman(startString)).toStrictEqual('Th_s _s _ r_g_x ch_ll_ng_. W_ _r_ try_ng t_ cr__t_ _ h_ngm_n phr_s_ wh_r_ _ll _f th_ v_w_ls _r_ m_ss_ng!');
-//   });
+  test('It should remove the vowels from the hangman string and replace them with underscores', () => {
+    expect(hangman(startString)).toStrictEqual('Th_s _s _ r_g_x ch_ll_ng_. W_ _r_ try_ng t_ cr__t_ _ h_ngm_n phr_s_ wh_r_ _ll _f th_ v_w_ls _r_ m_ss_ng!');
+  });
 
-//   test('It should not contain the letters "a", "e", "i", "o", or "u"', () => {
-//     expect(hangman(startString)).not.toContain('a', 'e', 'i', 'o', 'u');
-//   });
-// });
+  test('It should not contain the letters "a", "e", "i", "o", or "u"', () => {
+    expect(hangman(startString)).not.toContain('a', 'e', 'i', 'o', 'u');
+  });
+});
 
 // describe('Testing challenge 7', () => {
 //   test('It should return an array of instances of "sells", shells", and "seashells"', () => {
