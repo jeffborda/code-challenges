@@ -177,7 +177,18 @@ For example: removeLastCharacters('Gregor', 2) returns 'Greg'.
 ------------------------------------------------------------------------*/
 
 const removeLastCharacters = (str, numberOfCharacters) => {
-  // Solution code here...
+  let arr = str.split('');
+  if (numberOfCharacters < 0) {
+    return str;
+  }
+  if (numberOfCharacters > arr.length) {
+    return '';
+  }
+
+  let endIndex = arr.length - numberOfCharacters;
+  arr.splice(endIndex, numberOfCharacters);
+
+  return arr.join('');
 };
 
 /*------------------------------------------------------------------------
@@ -275,21 +286,21 @@ describe('Testing challenge 7', () => {
   });
 });
 
-// describe('Testing challenge 8', () => {
-//   test('It should shorten the string based on the first argument', () => {
-//     expect(removeLastCharacters('Gregor', 2)).toStrictEqual('Greg');
-//     expect(removeLastCharacters('Gregor', 2).length).toStrictEqual(4);
-//   });
-//   test('It should return the complete string when passed a negative number', () => {
-//     expect(removeLastCharacters('hello', -1)).toStrictEqual('hello');
-//     expect(removeLastCharacters('wowow', -700)).toStrictEqual('wowow');
-//   });
-//   test('It should return an empty string when called with a number larger than the string length', () => {
-//     expect(removeLastCharacters('hello', 12)).toStrictEqual('');
-//     expect(removeLastCharacters('', 1)).toStrictEqual('');
-//     expect(removeLastCharacters('a', 1)).toStrictEqual('');
-//   });
-// });
+describe('Testing challenge 8', () => {
+  test('It should shorten the string based on the first argument', () => {
+    expect(removeLastCharacters('Gregor', 2)).toStrictEqual('Greg');
+    expect(removeLastCharacters('Gregor', 2).length).toStrictEqual(4);
+  });
+  test('It should return the complete string when passed a negative number', () => {
+    expect(removeLastCharacters('hello', -1)).toStrictEqual('hello');
+    expect(removeLastCharacters('wowow', -700)).toStrictEqual('wowow');
+  });
+  test('It should return an empty string when called with a number larger than the string length', () => {
+    expect(removeLastCharacters('hello', 12)).toStrictEqual('');
+    expect(removeLastCharacters('', 1)).toStrictEqual('');
+    expect(removeLastCharacters('a', 1)).toStrictEqual('');
+  });
+});
 
 // describe('Testing challenge 9', () => {
 //   test('It should return the string without vowels', () => {
