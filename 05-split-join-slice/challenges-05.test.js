@@ -221,7 +221,21 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 ------------------------------------------------------------------------*/
 
 const extractVowels = (str) => {
-  // Solution code here...
+  let arr = str.split('');
+  let vowels = [];
+  let result = [];
+
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] === 'a' || arr[i] === 'e' || arr[i] === 'i' || arr[i] === 'o' || arr[i] === 'u') {
+      vowels.push(arr.splice(i, 1)[0]);
+      i--;
+    }
+  }
+
+  result.push(arr.join(''));
+  vowels.sort();
+  result.push(vowels.join(''));
+  return result;
 };
 
 /*------------------------------------------------------------------------
@@ -318,11 +332,11 @@ describe('Testing challenge 9', () => {
   });
 });
 
-// describe('Testing challenge 10', () => {
-//   test('It should return the string without vowels', () => {
-//     expect(extractVowels('gregor')).toStrictEqual(['grgr', 'eo']);
-//     expect(extractVowels('gregor').length).toStrictEqual(2);
+describe('Testing challenge 10', () => {
+  test('It should return the string without vowels', () => {
+    expect(extractVowels('gregor')).toStrictEqual(['grgr', 'eo']);
+    expect(extractVowels('gregor').length).toStrictEqual(2);
 
-//     expect(extractVowels('The quick brown fox')).toStrictEqual(['Th qck brwn fx', 'eioou']);
-//   });
-// });
+    expect(extractVowels('The quick brown fox')).toStrictEqual(['Th qck brwn fx', 'eioou']);
+  });
+});
