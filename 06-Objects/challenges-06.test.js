@@ -156,11 +156,11 @@ const houseSize = (arr) => {
 
     sizes.push({
       house: Object.values(elem)[3],
-      members: count
+      members: count,
     });
   }
   return sizes;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -181,10 +181,26 @@ For example: [ { house: 'Stark', members: 6 }, { house: 'Arryn', members: 2 }, .
 const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
-  const survivors = [];
-  // Solution code here...
-  return survivors;
-}
+  const sizes = [];  
+
+  for(let elem of arr) {
+
+    let count = Object.values(elem)[2].length + 1;
+
+    if(Object.values(elem)[1] !== null) {
+      count++;
+    }
+    if(deceasedSpouses.includes(Object.values(elem)[1])) {
+      count--;
+    }
+
+    sizes.push({
+      house: Object.values(elem)[3],
+      members: count,
+    });
+  }
+  return sizes;
+};
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
@@ -244,8 +260,8 @@ describe('Testing challenge 6', () => {
   });
 });
 
-// describe('Testing challenge 7', () => {
-//   test('It should not include any deceased spouses', () => {
-//     expect(houseSurvivors(characters)).toStrictEqual([ { house: 'Stark', members: 6 }, { house: 'Arryn', members: 2 }, { house: 'Lannister', members: 4 }, { house: 'Targaryen', members: 4 }, { house: 'Tyrell', members: 3 }, { house: 'Stark', members: 2 }, { house: 'Snow', members: 1 } ]);
-//   });
-// });
+describe('Testing challenge 7', () => {
+  test('It should not include any deceased spouses', () => {
+    expect(houseSurvivors(characters)).toStrictEqual([ { house: 'Stark', members: 6 }, { house: 'Arryn', members: 2 }, { house: 'Lannister', members: 4 }, { house: 'Targaryen', members: 4 }, { house: 'Tyrell', members: 3 }, { house: 'Stark', members: 2 }, { house: 'Snow', members: 1 } ]);
+  });
+});
