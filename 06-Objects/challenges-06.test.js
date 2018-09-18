@@ -101,6 +101,18 @@ hasChildrenValues(characters, 'Eddard') will return false
 
 const hasChildrenValues = (arr, character) => {
   for(let elem of arr) {
+    let fullName = `${elem.name} ${elem.house}`;
+
+    if(elem.name === fullName) {
+      let kids = Object.values(elem)[2].length;
+      if (kids > 0) {
+        return true;
+      }
+      return false;
+    }
+
+
+
     if(elem.name === character) {
       let kids = Object.values(elem)[2].length;
       if (kids > 0) {
@@ -144,7 +156,7 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 ------------------------------------------------------------------------------------------------*/
 
 const houseSize = (arr) => {
-  const sizes = [];  
+  const sizes = [];
 
   for(let elem of arr) {
 
