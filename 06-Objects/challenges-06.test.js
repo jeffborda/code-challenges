@@ -69,8 +69,8 @@ let characters = [
 ]
 
 const totalCharacters = (arr) => {
-  // Solution code here...
-}
+  return Object.keys(arr).length;
+};
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -169,11 +169,11 @@ describe('Testing challenge 1', () => {
   });
 });
 
-// describe('Testing challenge 2', () => {
-//   test('something specific', () => {
-//     expect(totalCharacters(characters)).toStrictEqual(7);
-//   });
-// });
+describe('Testing challenge 2', () => {
+  test('something specific', () => {
+    expect(totalCharacters(characters)).toStrictEqual(7);
+  });
+});
 
 // describe('Testing challenge 3', () => {
 //   test('something specific', () => {
