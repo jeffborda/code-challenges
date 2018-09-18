@@ -100,15 +100,16 @@ hasChildrenValues(characters, 'Eddard') will return false
 ------------------------------------------------------------------------------------------------*/
 
 const hasChildrenValues = (arr, character) => {
-  arr.forEach(elem => {
-
+  for(let elem of arr) {
     if(elem.name === character) {
-      if(Object.values(elem)[2] === 'undefined'){
-        return false;
+      let kids = Object.values(elem)[2].length;
+      if (kids > 0) {
+        return true;
       }
+      return false;
     }
-  });
-  return true;
+  }
+  return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -120,8 +121,17 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------*/
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
-}
+  for(let elem of arr) {
+    if(elem.name === character) {
+      let kids = Object.values(elem)[2].length;
+      if (kids > 0) {
+        return true;
+      }
+      return false;
+    }
+  }
+  return false;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -134,8 +144,21 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 ------------------------------------------------------------------------------------------------*/
 
 const houseSize = (arr) => {
-  const sizes = [];
-  // Solution code here...
+  const sizes = [];  
+
+  for(let elem of arr) {
+
+    let count = Object.values(elem)[2].length + 1;
+
+    if(Object.values(elem)[1] !== null) {
+      count++;
+    }
+
+    sizes.push({
+      house: Object.values(elem)[3],
+      members: count
+    });
+  }
   return sizes;
 }
 
@@ -197,29 +220,29 @@ describe('Testing challenge 4', () => {
   test('It should return true for characters that have children', () => {
     expect(hasChildrenValues(characters, 'Daenarys')).toBeTruthy();
   });
+
+
+  test('It should return false to characters who do not have children', () => {
+    expect(hasChildrenValues(characters, 'Sansa')).toBeFalsy();
+  });
 });
 
-//   test('It should return false to characters who do not have children', () => {
-//     expect(hasChildrenValues(characters, 'Sansa')).toBeFalsy();
-//   });
-// });
+describe('Testing challenge 5', () => {
+  test('It should return true for characters that have children', () => {
+    expect(hasChildrenEntries(characters, 'Eddard')).toBeTruthy();
+  });
 
-// describe('Testing challenge 5', () => {
-//   test('It should return true for characters that have children', () => {
-//     expect(hasChildrenEntries(characters, 'Eddard')).toBeTruthy();
-//   });
+  test('It should return false to characters who do not have children', () => {
+    expect(hasChildrenEntries(characters, 'Jon')).toBeFalsy();
+  });
+});
 
-//   test('It should return false to characters who do not have children', () => {
-//     expect(hasChildrenEntries(characters, 'Jon')).toBeFalsy();
-//   });
-// });
-
-// describe('Testing challenge 6', () => {
-//   test('It should return an object for each house containing the name and size', () => {
-//     expect(houseSize(characters)).toStrictEqual([ { house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, { house: 'Lannister', members: 5 }, { house: 'Targaryen', members: 5 }, { house: 'Tyrell', members: 4 }, { house: 'Stark', members: 2 }, { house: 'Snow', members: 1 } ]);
-//     expect(houseSize(characters).length).toStrictEqual(7);
-//   });
-// });
+describe('Testing challenge 6', () => {
+  test('It should return an object for each house containing the name and size', () => {
+    expect(houseSize(characters)).toStrictEqual([ { house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, { house: 'Lannister', members: 5 }, { house: 'Targaryen', members: 5 }, { house: 'Tyrell', members: 4 }, { house: 'Stark', members: 2 }, { house: 'Snow', members: 1 } ]);
+    expect(houseSize(characters).length).toStrictEqual(7);
+  });
+});
 
 // describe('Testing challenge 7', () => {
 //   test('It should not include any deceased spouses', () => {
