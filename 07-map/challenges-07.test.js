@@ -25,7 +25,11 @@ Write a function named forEachTwoToThe that produces the same output as your for
 ------------------------------------------------------------------------------------------------*/
 
 const forEachTwoToThe = (input) => {
-
+  let result = [];
+  input.forEach(value => {
+    result.push(Math.pow(2, value));
+  });
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,8 +39,8 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 ------------------------------------------------------------------------------------------------*/
 
 const mapTwoToThe = (input) => {
-  // Solution code here...
-}
+  
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
