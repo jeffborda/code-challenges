@@ -39,7 +39,8 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 ------------------------------------------------------------------------------------------------*/
 
 const mapTwoToThe = (input) => {
-  
+  let result = input.map(value => Math.pow(2, value));
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
