@@ -170,7 +170,13 @@ const snorlaxStats = {
 };
 
 const extractStats = (stats) => {
-  // Solution code here...
+  let results = stats.map(obj => {
+    let reformattedObj = {};
+    reformattedObj['name'] = obj.stat.name;
+    reformattedObj['total'] = obj.effort + obj.baseStat;
+    return reformattedObj;
+  });
+  return results;
 };
 
 /* ------------------------------------------------------------------------------------------------
