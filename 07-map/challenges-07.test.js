@@ -121,7 +121,9 @@ const snorlaxAbilities = {
 };
 
 const extractAbilities = (abilities) => {
-  // Solution code here...
+  let result = abilities.map(obj => obj.ability.name);
+  //let result = abilities.map(Object.values(ability)[2].name);
+  return result;
 };
 
 /*------------------------------------------------------------------------------------------------
