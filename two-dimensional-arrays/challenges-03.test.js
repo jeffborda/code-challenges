@@ -273,20 +273,44 @@ const lowestWeeklyAverage = (weather) => {
 // ------------------------------------------------------------------------------------------------
 
 const excel = (str) => {
-  let rowSums = [];
-  let rowsArr = str.split('\n');
+  // let rowSums = [];
+  // let rowsArr = str.split('\n');
 
-  for(let i = 0; i < rowsArr.length; i++) {
-    let tempSum = 0;
-    let colArr = rowsArr[i].split(',');
+  // for(let i = 0; i < rowsArr.length; i++) {
+  //   let rowSum = 0;
+  //   let colArr = rowsArr[i].split(',');
 
-    for(let j = 0; i < colArr.length; j++) {
-      let temp = parseInt(colArr[j]);
-      tempSum += temp;
-    }
-    sumEachRow.push(tempSum);
-  }
-  return sumEachRow;
+  //   for(let j = 0; i < colArr.length; j++) {
+  //     let temp = parseInt(colArr[j]);
+  //     tempSum += temp;
+  //   }
+  //   sumEachRow.push(tempSum);
+  // }
+  // return sumEachRow;
+  const sums = [];
+  const rows = str.split('\n');
+
+  rows.forEach(row => {
+    let sum = 0;
+    const cols = row.split(',');
+    
+    cols.forEach(col => {
+      const num = parseInt(col);
+      
+    });
+  });
+
+
+
+
+
+
+
+
+
+
+
+
 };
 
 
