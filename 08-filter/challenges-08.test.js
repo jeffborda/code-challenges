@@ -39,6 +39,7 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------*/
 
 const notInFirstArray = (forbiddenValues, input) => {
+
   return input.filter(element => forbiddenValues.includes(element) ? false : element);
 };
 
@@ -82,7 +83,8 @@ const snorlaxData = {
 };
 
 const getBaseStatGreaterThan = (input, minBaseStat) => {
-  // Solution code here...
+
+  return input.filter(obj => obj.baseStat > minBaseStat ? obj : false);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -94,7 +96,8 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 ------------------------------------------------------------------------------------------------*/
 
 const getStatName = (input, minBaseStat) => {
-  // Solution code here...
+
+  return input.filter(obj => obj.baseStat > minBaseStat ? obj.stat.name : false);
 };
 
 /* ------------------------------------------------------------------------------------------------
