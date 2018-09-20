@@ -97,7 +97,14 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 
 const getStatName = (input, minBaseStat) => {
 
-  return input.filter(obj => obj.baseStat > minBaseStat ? obj.stat.name : false);
+  // return input.filter(obj => obj.baseStat > minBaseStat ? obj.stat.name : false);
+  let theICantGetThisToWorkWithFilterAndIDontKnowWhyArray = [];
+  for(let obj of input) {
+    if(obj.baseStat > minBaseStat) {
+      theICantGetThisToWorkWithFilterAndIDontKnowWhyArray.push(obj.stat.name);
+    }
+  }
+  return theICantGetThisToWorkWithFilterAndIDontKnowWhyArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
