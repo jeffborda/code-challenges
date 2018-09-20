@@ -10,7 +10,7 @@ For example, oddValues([1,2,3]) returns [1,3].
 
 const oddValues = (input) => {
 
-  return input.filter(val => val % 2 !== 0 ? val : false);
+  return input.filter(val => val % 2 !== 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 const filterStringsWithVowels = (input) => {
 
-  return input.filter(word => (/[aeiou]/i).test(word) ? word : false);
+  return input.filter(word => (/[aeiou]/i).test(word));
 };
 
 
@@ -84,7 +84,7 @@ const snorlaxData = {
 
 const getBaseStatGreaterThan = (input, minBaseStat) => {
 
-  return input.filter(obj => obj.baseStat > minBaseStat ? obj : false);
+  return input.filter(obj => obj.baseStat > minBaseStat);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -97,14 +97,7 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 
 const getStatName = (input, minBaseStat) => {
 
-  // return input.filter(obj => obj.baseStat > minBaseStat ? obj.stat.name : false);
-  let theICantGetThisToWorkWithFilterAndIDontKnowWhyArray = [];
-  for(let obj of input) {
-    if(obj.baseStat > minBaseStat) {
-      theICantGetThisToWorkWithFilterAndIDontKnowWhyArray.push(obj.stat.name);
-    }
-  }
-  return theICantGetThisToWorkWithFilterAndIDontKnowWhyArray;
+  return input.filter(obj => obj.baseStat > minBaseStat).map(obj => obj.stat.name);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -157,7 +150,8 @@ const characters = [
 ];
 
 const getCharactersWithoutChildren = (input) => {
-  // Solution code here...
+
+  return input.filter(obj => obj.hasOwnProperty('children') ? false : obj);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -169,7 +163,8 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 ------------------------------------------------------------------------------------------------*/
 
 const evenOddNumericValues = (input) => {
-  // Solution code here...
+
+  return input.filter(value => typeof value === 'number').map(value => value % 2 === 0 ? 'even' : 'odd');
 };
 
 /* ------------------------------------------------------------------------------------------------
