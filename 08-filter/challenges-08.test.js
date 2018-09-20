@@ -9,12 +9,7 @@ For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------*/
 
 const oddValues = (input) => {
-  // const result = input.filter(value => {
-  //   if (value % 2 !== 0){
-  //     return value;
-  //   }
-  // });
-  // return result;
+
   return input.filter(val => val % 2 !== 0 ? val : false);
 };
 
@@ -30,7 +25,8 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 
 const filterStringsWithVowels = (input) => {
-  // Solution code here...
+
+  return input.filter(word => (/[aeiou]/i).test(word) ? word : false);
 };
 
 
