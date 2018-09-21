@@ -64,11 +64,11 @@ const characters = [
 ];
 
 const countNumberOfChildren = (input) => {
-  return input.reduce((accumulator, value) => {
-    if (value.hasOwnProperty('children')) {
-      accumulator += value.children.length;
+  return input.reduce((acc, cur) => {
+    if (cur.hasOwnProperty('children')) {
+      acc += cur.children.length;
     }
-    return accumulator;
+    return acc;
   }, 0);
 };
 
@@ -112,7 +112,13 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, input) => {
-  // Solution code here...
+
+  return input.stats.reduce((acc, cur) => {
+    if(cur.stat.name === statName) {
+      acc = cur;
+    }
+    return acc;
+  }, null);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -122,7 +128,10 @@ Write a function that, given an array of numbers as input, uses ONE call to filt
 ------------------------------------------------------------------------------------------------*/
 
 const calculateAverage = (input) => {
-  // Solution code here...
+  return input.reduce((acc, curr) => {
+    acc += curr;
+    return acc;
+  }, 0) / input.length;
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -136,7 +145,7 @@ Write a function named extractChildren that, given the array of characters from 
 ------------------------------------------------------------------------------------------------*/
 
 const extractChildren = input => {
-  // Solution code here...
+
 };
 
 /*------------------------------------------------------------------------------------------------
