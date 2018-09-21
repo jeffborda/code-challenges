@@ -105,7 +105,7 @@ const snorlaxData = {
       },
       effort: 9,
       baseStat: 65,
-    },
+    }
   ],
   name: 'snorlax',
   weight: 4600,
@@ -113,9 +113,9 @@ const snorlaxData = {
 
 const extractStat = (statName, input) => {
 
-  return input.stats.reduce((acc, cur) => {
+  return input.reduce((acc, cur) => {
     if(cur.stat.name === statName) {
-      acc = cur;
+      return acc = cur;
     }
     return acc;
   }, null);
@@ -190,8 +190,13 @@ const isPrime = (value) => {
 };
 
 const countPrimeNumbers = (input) => {
-  // Solution code here...
-}
+  return input.reduce((acc, cur) => {
+    if(isPrime(cur)) {
+      acc++;
+    }
+    return acc;
+  }, 0);
+};
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 8
@@ -250,7 +255,10 @@ let starWarsData = [{
 }]
 
 const returnNames = (data) => {
-  // Solution code here...
+  return data.reduce((acc, cur) => {
+    acc.push(cur.name);
+    return acc;
+  }, []);
 };
 
 /*------------------------------------------------------------------------------------------------
