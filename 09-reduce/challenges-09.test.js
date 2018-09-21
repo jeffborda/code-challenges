@@ -64,7 +64,12 @@ const characters = [
 ];
 
 const countNumberOfChildren = (input) => {
-  // Solution code here...
+  return input.reduce((accumulator, value) => {
+    if (value.hasOwnProperty('children')) {
+      accumulator += value.children.length;
+    }
+    return accumulator;
+  }, 0);
 };
 
 /*------------------------------------------------------------------------------------------------
