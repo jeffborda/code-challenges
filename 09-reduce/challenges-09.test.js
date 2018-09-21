@@ -145,7 +145,15 @@ Write a function named extractChildren that, given the array of characters from 
 ------------------------------------------------------------------------------------------------*/
 
 const extractChildren = input => {
-
+  let namesWithA = input.filter(obj => obj.name.match(/a/i));
+  return namesWithA.reduce((acc, cur) => {
+    if(cur.hasOwnProperty('children')) {
+      for(let kid of cur.children) {
+        acc.push(kid);
+      }
+    }
+    return acc;
+  }, []);
 };
 
 /*------------------------------------------------------------------------------------------------
