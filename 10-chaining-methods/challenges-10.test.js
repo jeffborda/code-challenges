@@ -122,8 +122,17 @@ let starWarsData = [{
 }]
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
-}
+  
+  let result = [];
+  for(let elem of data) {
+    // console.log(elem);
+    if(elem.gender === 'male' || elem.gender === 'female') {
+      result.push(elem.name);
+    }
+  }
+
+  return result.join(' and ');
+};
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -180,12 +189,12 @@ describe('Testing challenge 3', () => {
   });
 });
 
-// describe('Testing challenge 4', () => {
-//   test('It should return only characters that are male or female', () => {
-//     expect(findMaleAndFemale(starWarsData)).toStrictEqual('Luke Skywalker and Darth Vader and Leia Organa');
-//     expect(findMaleAndFemale([{ name: 'person', gender: 'female' }, { gender: 'lol' }, { name: 'persontwo', gender: 'male' }])).toStrictEqual('person and persontwo');
-//   });
-// });
+describe('Testing challenge 4', () => {
+  test('It should return only characters that are male or female', () => {
+    expect(findMaleAndFemale(starWarsData)).toStrictEqual('Luke Skywalker and Darth Vader and Leia Organa');
+    expect(findMaleAndFemale([{ name: 'person', gender: 'female' }, { gender: 'lol' }, { name: 'persontwo', gender: 'male' }])).toStrictEqual('person and persontwo');
+  });
+});
 
 // describe('Testing challenge 5', () => {
 //   test('It should return the name of the shortest character', () => {
