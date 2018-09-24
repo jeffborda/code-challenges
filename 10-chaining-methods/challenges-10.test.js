@@ -50,7 +50,13 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------*/
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+  let firstArr = [];
+
+  for(let elem of input) {
+    firstArr.push(elem.filter(num => typeof num === 'number').filter(num => num % 5 === 0).map(num => Math.pow(2, num)));
+  }
+
+  return firstArr;
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -160,19 +166,19 @@ describe('Testing challenge 2', () => {
   });
 });
 
-// describe('Testing challenge 3', () => {
-//   test('It should return numbers divisible by five, then raise two to the power of the resulting numbers', () => {
-//     expect(divisibleByFiveTwoToThePower([[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]])).toStrictEqual([[1024, 1048576, 32], [32], [1024]]);
-//   });
+describe('Testing challenge 3', () => {
+  test('It should return numbers divisible by five, then raise two to the power of the resulting numbers', () => {
+    expect(divisibleByFiveTwoToThePower([[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]])).toStrictEqual([[1024, 1048576, 32], [32], [1024]]);
+  });
 
-//   test('It should return an empty array if none of the numbers are divisible by five', () => {
-//     expect(divisibleByFiveTwoToThePower([[1, 2, 3], [5, 10, 15]])).toStrictEqual([[], [32, 1024, 32768]]);
-//   });
+  test('It should return an empty array if none of the numbers are divisible by five', () => {
+    expect(divisibleByFiveTwoToThePower([[1, 2, 3], [5, 10, 15]])).toStrictEqual([[], [32, 1024, 32768]]);
+  });
 
-//   test('It should return an empty array if the values are not numbers', () => {
-//     expect(divisibleByFiveTwoToThePower([['one', 'two', 'five'], ['5', '10', '15'], [5]])).toStrictEqual([[], [], [32]]);
-//   });
-// });
+  test('It should return an empty array if the values are not numbers', () => {
+    expect(divisibleByFiveTwoToThePower([['one', 'two', 'five'], ['5', '10', '15'], [5]])).toStrictEqual([[], [], [32]]);
+  });
+});
 
 // describe('Testing challenge 4', () => {
 //   test('It should return only characters that are male or female', () => {
