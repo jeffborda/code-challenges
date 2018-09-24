@@ -122,16 +122,15 @@ let starWarsData = [{
 }]
 
 let findMaleAndFemale = (data) => {
-  
-  let result = [];
-  for(let elem of data) {
-    // console.log(elem);
-    if(elem.gender === 'male' || elem.gender === 'female') {
-      result.push(elem.name);
-    }
-  }
 
-  return result.join(' and ');
+  return data.filter(obj => {
+    if (obj.gender === 'male' || obj.gender === 'female') {
+      return obj;
+    }
+  })
+    .map(obj => obj.name)
+    .join(' and ');
+
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -196,8 +195,8 @@ describe('Testing challenge 4', () => {
   });
 });
 
-// describe('Testing challenge 5', () => {
-//   test('It should return the name of the shortest character', () => {
-//     expect(findShortest(starWarsData)).toStrictEqual('R2-D2');
-//   });
-// });
+describe('Testing challenge 5', () => {
+  test('It should return the name of the shortest character', () => {
+    expect(findShortest(starWarsData)).toStrictEqual('R2-D2');
+  });
+});
