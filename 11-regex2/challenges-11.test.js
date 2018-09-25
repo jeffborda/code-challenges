@@ -21,8 +21,13 @@ For example, findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'
 ------------------------------------------------------------------------------------------------*/
 
 const findTagNames = elements => {
-  // Solution code here...
-}
+  let results = [];
+  for(let tags of elements) {
+    // console.log(tags.match());
+    results.push(tags.match(/(\/)([A-Z0-9]*)/i));
+  }
+  return results;
+};
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -41,7 +46,7 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------*/
 
 const validateEmail = (email) => {
-  // Solution code here...
+  //
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -66,7 +71,8 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------*/
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
+  let re = '/^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/';
+  return re.test(phoneNumber);
 };
 
 
