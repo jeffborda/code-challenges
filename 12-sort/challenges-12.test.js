@@ -146,7 +146,26 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (meetings) => {
-  // Solution code here...
+  return meetings.sort((a, b) => {
+    if(a.dayOfWeek === 'Monday' && b.dayOfWeek === 'Tuesday') return -1;
+    if(a.dayOfWeek === 'Monday' && b.dayOfWeek === 'Wednesday') return -1;
+    if(a.dayOfWeek === 'Monday' && b.dayOfWeek === 'Thursday') return -1;
+    if(a.dayOfWeek === 'Monday' && b.dayOfWeek === 'Friday') return -1;
+    if(a.dayOfWeek === 'Tuesday' && b.dayOfWeek === 'Monday') return 1;
+    if(a.dayOfWeek === 'Tuesday' && b.dayOfWeek === 'Wednesday') return -1;
+    if(a.dayOfWeek === 'Tuesday' && b.dayOfWeek === 'Thursday') return -1;
+    if(a.dayOfWeek === 'Tuesday' && b.dayOfWeek === 'Friday') return -1;
+    if(a.dayOfWeek === 'Wednesday' && b.dayOfWeek === 'Monday') return 1;
+    if(a.dayOfWeek === 'Wednesday' && b.dayOfWeek === 'Tuesday') return 1;
+    if(a.dayOfWeek === 'Wednesday' && b.dayOfWeek === 'Thursday') return -1;
+    if(a.dayOfWeek === 'Wednesday' && b.dayOfWeek === 'Friday') return -1;
+    if(a.dayOfWeek === 'Thursday' && b.dayOfWeek === 'Monday') return 1;
+    if(a.dayOfWeek === 'Thursday' && b.dayOfWeek === 'Tuesday') return 1;
+    if(a.dayOfWeek === 'Thursday' && b.dayOfWeek === 'Wednesday') return 1;
+    if(a.dayOfWeek === 'Thursday' && b.dayOfWeek === 'Friday') return -1;
+    if(a.dayOfWeek === 'Friday') return -1;
+    return 0;
+  });
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -160,7 +179,30 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------*/
 
 const sortSchedule = (meetings) => {
-  // Solution code here...
+
+  return meetings.sort((a, b) => {
+    if(a.dayOfWeek === 'Monday' && b.dayOfWeek === 'Tuesday') return -1;
+    if(a.dayOfWeek === 'Monday' && b.dayOfWeek === 'Wednesday') return -1;
+    if(a.dayOfWeek === 'Monday' && b.dayOfWeek === 'Thursday') return -1;
+    if(a.dayOfWeek === 'Monday' && b.dayOfWeek === 'Friday') return -1;
+    if(a.dayOfWeek === 'Tuesday' && b.dayOfWeek === 'Monday') return 1;
+    if(a.dayOfWeek === 'Tuesday' && b.dayOfWeek === 'Wednesday') return -1;
+    if(a.dayOfWeek === 'Tuesday' && b.dayOfWeek === 'Thursday') return -1;
+    if(a.dayOfWeek === 'Tuesday' && b.dayOfWeek === 'Friday') return -1;
+    if(a.dayOfWeek === 'Wednesday' && b.dayOfWeek === 'Monday') return 1;
+    if(a.dayOfWeek === 'Wednesday' && b.dayOfWeek === 'Tuesday') return 1;
+    if(a.dayOfWeek === 'Wednesday' && b.dayOfWeek === 'Thursday') return -1;
+    if(a.dayOfWeek === 'Wednesday' && b.dayOfWeek === 'Friday') return -1;
+    if(a.dayOfWeek === 'Thursday' && b.dayOfWeek === 'Monday') return 1;
+    if(a.dayOfWeek === 'Thursday' && b.dayOfWeek === 'Tuesday') return 1;
+    if(a.dayOfWeek === 'Thursday' && b.dayOfWeek === 'Wednesday') return 1;
+    if(a.dayOfWeek === 'Thursday' && b.dayOfWeek === 'Friday') return -1;
+    if(a.dayOfWeek === 'Friday') return -1;
+    if(a.start < b.start) return -1;
+    if(a.start > b.start) return 1;
+    if((a.end - a.start) < (b.end - b.start)) return -1;
+    if((a.end - a.start) > (b.end - b.start)) return 1;
+  });
 };
 
 /*------------------------------------------------------------------------------------------------
