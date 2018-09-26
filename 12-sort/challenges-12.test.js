@@ -22,7 +22,7 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------*/
 
 const alphabetize = (strings) => {
-  // Solution code here...
+  return strings.sort();
 };
 
 /*------------------------------------------------------------------------------------------------
