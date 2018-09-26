@@ -21,12 +21,8 @@ For example, findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'
 ------------------------------------------------------------------------------------------------*/
 
 const findTagNames = elements => {
-  let results = [];
-  for(let tags of elements) {
-    // console.log(tags.match());
-    results.push(tags.match(/(\/)([A-Z0-9]*)/i));
-  }
-  return results;
+  return elements.map(str => str.match(/<(\/[a-z]+\d?)>/g))
+    .reduce( (ans, result) => ans.concat(result.map(x => x.slice(1, (x.length-1)))), []);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -46,7 +42,8 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------*/
 
 const validateEmail = (email) => {
-  // /^[A-Za-z0-9]
+
+  return email.match(/^[A-Za-z0-9]+\.?[A-Za-z0-9]+?@[A-Za-z0-9]+.(net|com|org)$/);
 };
 
 /*------------------------------------------------------------------------------------------------
