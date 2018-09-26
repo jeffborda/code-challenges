@@ -98,7 +98,10 @@ const people = [
 ];
 
 const sortPeople = (people) => {
-  // Solution code here...
+  return people.sort((a, b) => {
+    if(a.lastName < b.lastName) return -1;
+    if(a.lastName > b.lastName) return 1;
+  });
 };
 
 /*------------------------------------------------------------------------------------------------
