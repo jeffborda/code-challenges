@@ -113,7 +113,14 @@ If two people share the same last name, alphabetize on their first name. If two 
 ------------------------------------------------------------------------------------------------*/
 
 const sortPeopleBetter = (people) => {
-  // Solution code here...
+  return people.sort((a, b) => {
+    if(a.lastName < b.lastName) return -1;
+    if(a.lastName > b.lastName) return 1;
+    if(a.firstName < b.firstName) return -1;
+    if(a.firstName > b.firstName) return 1;
+    if(a.age < b.age) return -1;
+    if(a.age > b.age) return 1;
+  });
 };
 
 /*------------------------------------------------------------------------------------------------
