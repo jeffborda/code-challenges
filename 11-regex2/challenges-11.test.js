@@ -68,7 +68,9 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------*/
 
 const validatePhoneNumber = (phoneNumber) => {
-  let re = '/^(\(\d{3}\)|(\d{3}\)/';
+
+  const re = /^(\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$/;
+
   return re.test(phoneNumber);
 };
 
