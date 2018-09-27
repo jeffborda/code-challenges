@@ -33,7 +33,7 @@ const findHappiness = (strs) => {
 // ------------------------------------------------------------------------------------------------
 
 const standardizePhoneNumbers = (phoneNumbers) => {
-  // Solution code here...
+  return phoneNumbers.map(elem => elem.replace(/\D*/g, ''));
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -45,7 +45,13 @@ const standardizePhoneNumbers = (phoneNumbers) => {
 // ------------------------------------------------------------------------------------------------
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  let result = '';
+  for(let i = 0; i < str.length; i++) {
+    if(i % 2 !== 0) {
+      result += str.charAt(i);
+    }
+  }
+  return result;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -173,23 +179,23 @@ describe('Testing challenge 2', () => {
   });
 });
 
-// describe('Testing challenge 3', () => {
-//   test('It should return a standardized set of phone numbers', () => {
-//     const nums = ['(123) 456-7890', '(222) 222-2222'];
+describe('Testing challenge 3', () => {
+  test('It should return a standardized set of phone numbers', () => {
+    const nums = ['(123) 456-7890', '(222) 222-2222'];
 
-//     expect(standardizePhoneNumbers(nums)).toStrictEqual(['1234567890', '2222222222']);
-//     expect(standardizePhoneNumbers([nums[0]])).toStrictEqual(['1234567890']);
-//   });
-// });
+    expect(standardizePhoneNumbers(nums)).toStrictEqual(['1234567890', '2222222222']);
+    expect(standardizePhoneNumbers([nums[0]])).toStrictEqual(['1234567890']);
+  });
+});
 
-// describe('Testing challenge 4', () => {
-//   test('It should only return the odd indexed characters from the string', () => {
-//     expect(onlyOddChars('0123456789')).toStrictEqual('13579');
-//     expect(onlyOddChars('abcd')).toStrictEqual('bd');
-//     expect(onlyOddChars('a')).toStrictEqual('');
-//     expect(onlyOddChars('')).toStrictEqual('');
-//   });
-// });
+describe('Testing challenge 4', () => {
+  test('It should only return the odd indexed characters from the string', () => {
+    expect(onlyOddChars('0123456789')).toStrictEqual('13579');
+    expect(onlyOddChars('abcd')).toStrictEqual('bd');
+    expect(onlyOddChars('a')).toStrictEqual('');
+    expect(onlyOddChars('')).toStrictEqual('');
+  });
+});
 
 // describe('Testing challenge 5', () => {
 //   test('It should correctly assess whether all the strings are happy', () => {
