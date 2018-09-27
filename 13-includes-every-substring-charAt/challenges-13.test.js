@@ -30,10 +30,19 @@ const findHappiness = (strs) => {
 //
 // Write a function named standardizePhoneNumbers that takes in an array of phone number strings in
 // (XXX) XXX-XXXX format, and returns an array with the phone number strings in XXXXXXXXXX format.
+// 01234567890123
 // ------------------------------------------------------------------------------------------------
 
 const standardizePhoneNumbers = (phoneNumbers) => {
-  return phoneNumbers.map(elem => elem.replace(/\D*/g, ''));
+  // return phoneNumbers.map(elem => elem.replace(/\D*/g, ''));
+
+  return phoneNumbers.map(num => {
+    let tempStr = '';
+    tempStr += num.substring(1, 4);
+    tempStr += num.substring(6, 9);
+    tempStr += num.substring(10, 14);
+    return tempStr;
+  });
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -62,7 +71,7 @@ const onlyOddChars = (str) => {
 // ------------------------------------------------------------------------------------------------
 
 const allHappy = (strs) => {
-  // Solution code here...
+  return strs.every(str => str.includes(':)'));
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -197,15 +206,15 @@ describe('Testing challenge 4', () => {
   });
 });
 
-// describe('Testing challenge 5', () => {
-//   test('It should correctly assess whether all the strings are happy', () => {
-//     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
+describe('Testing challenge 5', () => {
+  test('It should correctly assess whether all the strings are happy', () => {
+    const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
-//     expect(allHappy(words)).toStrictEqual(false);
-//     expect(allHappy(['apple (:)', ':)banana', 'cant:)aloupe'])).toStrictEqual(true);
-//     expect(allHappy([])).toStrictEqual(true);
-//   });
-// });
+    expect(allHappy(words)).toStrictEqual(false);
+    expect(allHappy(['apple (:)', ':)banana', 'cant:)aloupe'])).toStrictEqual(true);
+    expect(allHappy([])).toStrictEqual(true);
+  });
+});
 
 // describe('Testing challenge 6', () => {
 //   test('It should find all the strings that contain a given string', () => {
