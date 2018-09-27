@@ -93,7 +93,7 @@ const findAnything = (strs, target) => {
 // ------------------------------------------------------------------------------------------------
 
 const allAnything = (strs, target) => {
-  // Solution code here...
+  return strs.every(elem => elem.includes(target));
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -225,15 +225,15 @@ describe('Testing challenge 6', () => {
   });
 });
 
-// describe('Testing challenge 7', () => {
-//   test('It should determine whether all the strings contain a given string', () => {
-//     const words = ['things', 'apple pie (:)', ':)banana pie', 'missing that thing', 'cant:)aloupe is tasty'];
+describe('Testing challenge 7', () => {
+  test('It should determine whether all the strings contain a given string', () => {
+    const words = ['things', 'apple pie (:)', ':)banana pie', 'missing that thing', 'cant:)aloupe is tasty'];
 
-//     expect(allAnything(words, 'a')).toStrictEqual(false);
-//     expect(allAnything(words, '')).toStrictEqual(true);
-//     expect(allAnything(words, 'i')).toStrictEqual(true);
-//   });
-// });
+    expect(allAnything(words, 'a')).toStrictEqual(false);
+    expect(allAnything(words, '')).toStrictEqual(true);
+    expect(allAnything(words, 'i')).toStrictEqual(true);
+  });
+});
 
 // describe('Testing challenge 8', () => {
 //   test('It should remove Brook from all courses', () => {
