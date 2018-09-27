@@ -111,7 +111,7 @@ const allAnything = (strs, target) => {
 // ------------------------------------------------------------------------------------------------
 
 const unenrollBrook = (roster) => {
-  // Solution code here...
+  return roster.map(arr => arr.filter(elem => elem.includes('Brook') ? false : elem));
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -235,23 +235,23 @@ describe('Testing challenge 7', () => {
   });
 });
 
-// describe('Testing challenge 8', () => {
-//   test('It should remove Brook from all courses', () => {
-//     const roster = [
-//       ['Michelle', 'Allie', 'Brook TESTING'],
-//       ['Brook Riggio', 'hey look it\'s Brook', 'Jennifer'],
-//       ['Nicholas', 'Sam', 'Scott', 'Vinicio']
-//     ];
+describe('Testing challenge 8', () => {
+  test('It should remove Brook from all courses', () => {
+    const roster = [
+      ['Michelle', 'Allie', 'Brook TESTING'],
+      ['Brook Riggio', 'hey look it\'s Brook', 'Jennifer'],
+      ['Nicholas', 'Sam', 'Scott', 'Vinicio']
+    ];
 
-//     expect(unenrollBrook(roster)).toStrictEqual([
-//       ['Michelle', 'Allie'],
-//       ['Jennifer'],
-//       ['Nicholas', 'Sam', 'Scott', 'Vinicio']
-//     ]);
-//     expect(unenrollBrook([['Brook', 'person'], [], ['person', 'person', 'Brook']])).toStrictEqual([['person'], [], ['person', 'person']]);
-//     expect(unenrollBrook([])).toStrictEqual([]);
-//   });
-// });
+    expect(unenrollBrook(roster)).toStrictEqual([
+      ['Michelle', 'Allie'],
+      ['Jennifer'],
+      ['Nicholas', 'Sam', 'Scott', 'Vinicio']
+    ]);
+    expect(unenrollBrook([['Brook', 'person'], [], ['person', 'person', 'Brook']])).toStrictEqual([['person'], [], ['person', 'person']]);
+    expect(unenrollBrook([])).toStrictEqual([]);
+  });
+});
 
 // describe('Testing challenge 9', () => {
 //   test('It should sort events by the day on which they happen', () => {
