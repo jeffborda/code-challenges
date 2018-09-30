@@ -138,8 +138,105 @@ const sortBy = (property, objs) => {
 // ------------------------------------------------------------------------------------------------
 
 const detectTicTacToeWin = (board) => {
-  // Solution code here...
-}
+
+
+  function helpCheck(r1, c1, r2, c2, r3, c3) {
+    if(board[r1][c1] === board[r2][c2] === board[r3][c3] /*&& (board[r1][c1] === 'X' || board[r1][c1] === 'O')*/) {
+      return true;
+    }
+    return false;
+  };
+
+
+  let r1 = 0;
+  let c1 = 0;
+
+  let r2 = 0;
+  let c2 = 1;
+
+  let r3 = 0;
+  let c3 = 2;
+
+
+  //Checks if 3 in one row
+
+  if(helpCheck(r1, c1, r2, c2, r3, c3)) {
+    return true;
+  }
+
+  r1++;
+  r2++;
+  r3++;
+
+  if(helpCheck(r1, c1, r2, c2, r3, c3)) {
+    return true;
+  }
+
+  r1++;
+  r2++;
+  r3++;
+
+  if(helpCheck(r1, c1, r2, c2, r3, c3)) {
+    return true;
+  }
+
+  // Checks if 3 in one column
+  r1 = 0;
+  r2 = 1;
+  r3 = 2;
+  c1 = 0;
+  c2 = 0;
+  c3 = 0;
+
+  if(helpCheck(r1, c1, r2, c2, r3, c3)) {
+    return true;
+  }
+
+  c1++;
+  c2++;
+  c3++;
+
+  if(helpCheck(r1, c1, r2, c2, r3, c3)) {
+    return true;
+  }
+
+  c1++;
+  c2++;
+  c3++;
+
+  if(helpCheck(r1, c1, r2, c2, r3, c3)) {
+    return true;
+  }
+
+  //diagnols
+  r1 = 0;
+  c1 = 0;
+  r2 = 1;
+  c2 = 1;
+  r3 = 2;
+  c3 = 2;
+
+
+  if(helpCheck(r1, c1, r2, c2, r3, c3)) {
+    return true;
+  }
+
+  r1 = 2;
+  c1 = 2;
+  r2 = 1;
+  c2 = 1;
+  r3 = 0;
+  c3 = 0;
+
+  if(helpCheck(r1, c1, r2, c2, r3, c3)) {
+    return true;
+  }
+
+  return false;
+
+
+
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 5
@@ -152,8 +249,9 @@ const detectTicTacToeWin = (board) => {
 // https:/missingslash.org returns false because url malformed
 // ------------------------------------------------------------------------------------------------
 const isSecure = (url) => {
-// Solution code here...
-}
+
+  return /^(https:\/\/)/.test(url);
+};
 
 // ------------------------------------------------------------------------------------------------
 // TESTS
@@ -213,27 +311,27 @@ describe('Testing challenge 3', () => {
 
 });
 
-// describe('Testing challenge 4', () => {
-//   test('It should return true if there are three in a row', () => {
-//     expect(detectTicTacToeWin([['X', '', 'O'], ['X', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(true);
-//     expect(detectTicTacToeWin([['O', '', 'X'], ['X', 'O', 'X'], ['X', '', 'O']])).toStrictEqual(true);
-//   });
+describe('Testing challenge 4', () => {
+  test('It should return true if there are three in a row', () => {
+    expect(detectTicTacToeWin([['X', '', 'O'], ['X', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(true);
+    expect(detectTicTacToeWin([['O', '', 'X'], ['X', 'O', 'X'], ['X', '', 'O']])).toStrictEqual(true);
+  });
 
-//   test('It should return false if there are not three in a row', () => {
-//     expect(detectTicTacToeWin([['X', '', 'O'], ['O', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(false);
-//   });
+  test('It should return false if there are not three in a row', () => {
+    expect(detectTicTacToeWin([['X', '', 'O'], ['O', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(false);
+  });
 
-//   test('It should not treat empty 3 in row as winner', () => {
-//     expect(detectTicTacToeWin([['', '', ''], ['O', 'O', ''], ['X', 'O', 'X']])).toEqual(false);
-//   });
-// });
+  test('It should not treat empty 3 in row as winner', () => {
+    expect(detectTicTacToeWin([['', '', ''], ['O', 'O', ''], ['X', 'O', 'X']])).toEqual(false);
+  });
+});
 
-// describe('Testing challenge 5', () => {
-//   test('It should check if url is https', () => {
+describe('Testing challenge 5', () => {
+  test('It should check if url is https', () => {
 
-//     expect(isSecure('http://www.insecure.com')).toBe(false); 
-//     expect(isSecure('https://secure.com')).toBe(true); 
-//     expect(isSecure('https:/missingslash.org')).toBe(false); 
-//   });
-// });
+    expect(isSecure('http://www.insecure.com')).toBe(false); 
+    expect(isSecure('https://secure.com')).toBe(true); 
+    expect(isSecure('https:/missingslash.org')).toBe(false); 
+  });
+});
 
